@@ -2,12 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: contoso-website
-  namespace: {{ default "staging" .Release.Namespace }}
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-    - host: contoso-{{ default "staging" .Release.Namespace }}.{{ .Values.dns.name }}
+    - host: contoso.9c3594e8f821449ba7c6.eastus.aksapp.io
       http:
         paths:
           - backend:
